@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var GitHubStrategy = require('passport-github2').Strategy;
 var partials = require('express-partials');
-
+require('dotenv').config()
 
 var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
 var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
@@ -74,13 +74,13 @@ app.get('/', function(req, res){
   res.render('index', { user: req.user });
 });
 
-app.get('/account', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
-});
-
-app.get('/login', function(req, res){
-  res.render('login', { user: req.user });
-});
+// app.get('/account', ensureAuthenticated, function(req, res){
+//   res.render('account', { user: req.user });
+// });
+//
+// app.get('/login', function(req, res){
+//   res.render('login', { user: req.user });
+// });
 
 // GET /auth/github
 //   Use passport.authenticate() as route middleware to authenticate the
